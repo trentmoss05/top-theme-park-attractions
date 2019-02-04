@@ -1,0 +1,3 @@
+class TopThemeParkAttractions::Scraper
+
+end

@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/top_theme_park_attractions'
+
+TopThemeParkAttractions::CLI.new.call
