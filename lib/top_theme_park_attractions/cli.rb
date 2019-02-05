@@ -34,6 +34,11 @@ class TopThemeParkAttractions::CLI
   end
 
   def more_info(attraction)
+    puts "#{attraction.name} in #{attraction.theme_park} - #{attraction.position}"
+    puts "Type of Attraction:         #{attraction.ride_type}"
+    puts "Park URL:                   #{attraction.park_url}"
+    puts "Attraction Opening Date:    #{attraction.opening_date}"
+    puts "Description of Attraction: #{attraction.description}"
 
   end
 
