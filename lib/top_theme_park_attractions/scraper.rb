@@ -7,10 +7,14 @@ class TopThemeParkAttractions::Scraper
   end
 
   def scrape_attractions
-    self.get_doc.css(".views-field-title a")
+    self.get_doc.css("tbody tr")
   end
 
-
+  def make_attractions
+    scrape_attractions.each do |n|
+      TopThemeParkAttractions::Attractions.new_from_index_page(n)
+    end
+  end
 
 end
 
@@ -18,5 +22,7 @@ end
 TopThemeParkAttractions::Scraper.new.get_doc
 
 
-
+#position of attraction = doc.css(".views-field-counter").text
 # name of attraction = doc.css(".views-field-title a").text
+# theme park for attraction = doc.css(".views-field-term-node-tid").text
+# URL for attraction = doc.css(".views-field-title a").attribute("href").text

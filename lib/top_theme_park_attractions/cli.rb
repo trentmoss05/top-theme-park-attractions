@@ -1,9 +1,9 @@
 class TopThemeParkAttractions::CLI
 
   def call
+    TopThemeParkAttractions::Scraper.new.make_attractions
+    puts "This is the top 100 Theme Park Attractions of the World!"
     start
-    more_info
-    goodbye
   end
 
   def start
@@ -15,29 +15,37 @@ class TopThemeParkAttractions::CLI
     puts "What attraction would you like more info on? (enter number)"
     input = gets.strip.to_i
 
+    attraction = TopThemeParkAttractions::Attractions.find(input)
+
+    more_info(attraction)
+
+    puts "Would you like to see any more attractions? (please enter y or n)"
+
+    input = gets.strip
+    if input == "y"
+      start
+    elsif input == "n"
+      goodbye
+    else
+      puts "Please try another answer."
+      start
+    end
+
   end
 
-  def more_info
+  def more_info(attraction)
 
-    input = nil
-    while input != "exit"
-      print "Enter the number of the attraction you want more info on or type list to see attraction list again: "
-      input = gets.strip.downcase
-      case input
-      when "1"
-        puts "More info on deal 1..."
-      when "2"
-        puts "More info on deal 2..."
-      when "list"
-        list_attractions
-      else
-        puts "Not sure what you want, type list or exit"
-      end
-    end
   end
 
   def goodbye
-    puts "Come back later to check attractions!"
+    puts "Thank you!"
+  end
+
+  def show_attractions(numbers)
+    puts "Attractions #{numbers} - #{numbers+19}"
+    TopThemeParkAttractions::Attractions.all[numbers-1, 20].each.with_index(numbers) do |attraction, index|
+      puts "#{index}. #{attraction.name} in #{attraction.theme_park}"
+    end
   end
 
 end
