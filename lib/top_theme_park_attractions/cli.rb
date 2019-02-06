@@ -3,11 +3,12 @@ class TopThemeParkAttractions::CLI
   def call
     TopThemeParkAttractions::Scraper.new.make_attractions
     puts "This is the top 100 Theme Park Attractions of the World!"
+    puts ""
     start
   end
 
   def start
-    puts "Which attractions would you like to see? (enter a number 1-20, 21-40, 41-60, 61-80, or 81-100)"
+    puts "Which attractions would you like to see? (enter a number 1-100)"
     input = gets.strip.to_i
 
     show_attractions(input)
@@ -36,7 +37,7 @@ class TopThemeParkAttractions::CLI
   def more_info(attraction)
     puts "#{attraction.name} in #{attraction.theme_park.strip}"
     puts ""
-    puts "Type of Attraction:         #{attraction.ride_type}"
+    puts "Type of Attraction:         #{attraction.ride_type.strip}"
     puts ""
     puts "Park URL:                   #{attraction.park_url}"
     puts ""
@@ -51,7 +52,9 @@ class TopThemeParkAttractions::CLI
   end
 
   def show_attractions(numbers)
+    puts ""
     puts "Attractions #{numbers} - #{numbers+19}"
+    puts ""
     TopThemeParkAttractions::Attractions.all[numbers-1, 20].each.with_index(numbers) do |attraction, index|
       puts "#{index}. #{attraction.name} in #{attraction.theme_park.strip}"
       puts ""

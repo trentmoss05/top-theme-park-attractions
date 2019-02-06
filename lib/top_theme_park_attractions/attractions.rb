@@ -30,7 +30,7 @@ class TopThemeParkAttractions::Attractions
   end
 
   def ride_type
-    @ride_type ||= doc.css("div.attraction-info-box p p").text
+    @ride_type ||= doc.css("div.attraction-info-box p")[1].text.gsub(/([Type:])/, "")
   end
 
   def park_url
