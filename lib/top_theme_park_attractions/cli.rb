@@ -35,6 +35,7 @@ class TopThemeParkAttractions::CLI
   end
 
   def more_info(attraction)
+    puts ""
     puts "#{attraction.name} in #{attraction.theme_park.strip}"
     puts ""
     puts "Type of Attraction:         #{attraction.ride_type.strip}"
@@ -53,9 +54,9 @@ class TopThemeParkAttractions::CLI
 
   def show_attractions(numbers)
     puts ""
-    puts "Attractions #{numbers} - #{numbers+19}"
+    puts "Attractions #{numbers} - #{numbers+14}"
     puts ""
-    TopThemeParkAttractions::Attractions.all[numbers-1, 20].each.with_index(numbers) do |attraction, index|
+    TopThemeParkAttractions::Attractions.all[numbers-1, 15].each.with_index(numbers) do |attraction, index|
       puts "#{index}. #{attraction.name} in #{attraction.theme_park.strip}"
       puts ""
     end
