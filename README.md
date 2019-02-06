@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This is a list of the Top 100 Theme Park Attractions in the world. To use this gem, run 'bin/top-attractions', you will be prompted to give a number between 1 and 100. This will give you a list of attractions from the number you entered and the next 14. You can then enter the specific number of the attraction you choose to receive more information on the ride.
 
 ## Development
 
