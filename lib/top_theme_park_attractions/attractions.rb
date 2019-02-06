@@ -34,7 +34,7 @@ class TopThemeParkAttractions::Attractions
   end
 
   def park_url
-    @park_url ||= doc.css("div.field-items a").attribute("href").text
+    @park_url ||= "https://www.themeparktourist.com#{doc.css("div.field-items a").attribute("href").text}"
   end
 
   def description
