@@ -50,3 +50,9 @@ class TopThemeParkAttractions::Attractions
   end
 
 end
+
+
+# position of attraction = doc.css(".views-field-counter").text
+# name of attraction = doc.css(".views-field-title a").text
+# theme park for attraction = doc.css(".views-field-term-node-tid").text
+# URL for attraction = doc.css(".views-field-title a").attribute("href").text

@@ -1,5 +1,3 @@
-require_relative '../top_theme_park_attractions'
-
 class TopThemeParkAttractions::Scraper
 
   def get_doc
@@ -17,12 +15,3 @@ class TopThemeParkAttractions::Scraper
   end
 
 end
-
-
-TopThemeParkAttractions::Scraper.new.get_doc
-
-
-#position of attraction = doc.css(".views-field-counter").text
-# name of attraction = doc.css(".views-field-title a").text
-# theme park for attraction = doc.css(".views-field-term-node-tid").text
-# URL for attraction = doc.css(".views-field-title a").attribute("href").text
